@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hangman | Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+</head>
+<body>
+  
+  <div class="top-section">
+      
+
+   <h1>Hangman!</h1>
+   <div class='top-buttons'>
+       <button type="button" class="game-start-button">Start game</button>
+       <button class="rules"><a href="rules.html">Check rules</a></button>
+       
+   </div>
+   
+   
+  </div>
+   
+   
+   
+   <div class='question-section'>
+       <p class="starting-paragraph">Once the game is started, a question will be displayed here...</p>
+   
+   <p class="question">a German novelist. His landmark novel All Quiet on the Western Front (1928), about the German military experience of World War I, was an international best-seller which created a new literary genre, and was subsequently made into the film All Quiet on the Western Front (1930).</p>
+   </div>
+   
+   
+   
+<div class="game-container">
+      
+         <div class='hangman-image-section'>
+    
+        <img class="hangman-image" src="img/p0.png" alt="">
+        
+        
+    </div>
+      
+      
+       <div class='input-area'>
+       
+       <p>Now, let's guess a letter to find out the answer to this question. <br>
+       You can make a guess here: </p>
+       
+        <input maxlength="1" type="text" class='input-text'>
+        <p class='game-over'>GAME OVER!</p>
+        
+         <button type="button"  class="enter-button">Enter</button>
+         
+         <p>The answer is:</p>
+         
+         <p class="answer-section">
+           
+         </p>
+         
+        <button class="show-answer-start-new-game">Show the answer and start a new game</button>
+        <button class="new-game">Try another question</button>
+        
+         <p class='game-over'></p>
+         
+        
+        
+         </div>
+    
+    
+    
+</div>
+
+
+
+
+<div class="bottom-section">
+    
+      
+</div>
+ 
+
+  
+  
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>

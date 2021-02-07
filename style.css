@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'antic_slabregular';
+    src: url('fonts/anticslab-regular-webfont.woff2') format('woff2'),
+         url('fonts/anticslab-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'indie_flowerregular';
+    src: url('fonts/indieflower-regular-webfont.woff2') format('woff2'),
+         url('fonts/indieflower-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html{
+    font-family: 'antic_slabregular';
+    margin: 0 auto;
+    background-color: #d4ffe7;
+}
+
+body{
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+    font-family: 'indie_flowerregular';
+    font-size: 1.8em;
+}
+
+.top-buttons{
+    display: flex;
+}
+
+.rules{
+   font-family: 'antic_slabregular';
+    font-size: 1.5em;
+    margin: 10px 0 10px 10px;
+    background-color: #addec3;
+    border:1px solid #addec3;
+    color: black;
+    
+    
+}
+
+.rules a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+
+.game-start-button{
+    display: block;
+    font-family: 'antic_slabregular';
+    font-size: 1.5em;
+    margin: 10px 0;
+    background-color: #addec3;
+    border:1px solid #addec3;
+}
+
+.game-start-button:hover,
+.rules:hover{
+    background-color: #759483;
+    color: aliceblue;
+}
+
+
+.game-start-button a{
+    text-decoration: none;
+    
+}
+.rules a:hover,
+.game-start-button a:hover{
+    color: aliceblue;
+}
+
+.starting-paragraph{
+    margin: 0 auto;
+    font-family: 'antic_slabregular';
+    font-size: 1.5em;
+    text-align: center;
+    padding: 1.5em 0 1em 0;
+}
+
+.game-container{
+    display: flex;
+    justify-content: center;
+    margin: 0  auto;
+    font-size: 1.2em;
+    width: 90%;
+    height: 12em;
+    
+     
+}
+
+.hangman-image-section{
+    width: 50%;
+    
+}
+
+.hangman-image{
+    width:95%;
+    float: left;
+    
+    
+    
+}
+
+.input-area{
+    width: 50%;
+    float: left;
+    
+    
+}
+
+
+
+.enter-button{
+   background-color: #84bfa2;
+    border: 1px solid #84bfa2;
+    font-size: 1em;
+    padding: 0.5em;
+}
+
+.enter-button:hover{
+    background-color: #819c8d;
+    border: 1px solid aliceblue;
+    color: aliceblue;
+}
+
+.new-game,
+.show-answer-start-new-game{
+    background-color: #bf9084;
+    border: 1px solid #bf9084;
+    margin: 1.5em 0;
+    font-size: 1.2em;
+    padding: 0.5em;
+    display: block;
+    
+}
+
+.new-game:hover,
+.show-answer-start-new-game:hover{
+    background-color: #a17a70;
+    border: 1px solid aliceblue;
+    color:aliceblue;
+    
+   
+}
+
+.enter-button, .new-game, .show-answer-start-new-game{
+    font-family: 'antic_slabregular';
+    
+}
+
+input{
+    width: 1.5em;
+    height:2em;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    font-family: 'antic_slabregular';
+    
+}
+
+.answer-section{
+    font-size: 1.8em;
+    letter-spacing: 0.5em;
+}
+
+.top-section{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.question{
+    width: 80%;
+    font-size: 1.2em;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.game-over{
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+}
+
+.question-section{
+    
+    width: 90%;
+    height: 12em;
+    margin: 1em auto;
+    background-color: #addec3;
+    
+
+    
+}
+
+
+.bottom-section{
+    padding: 4em;
+}
+
+
+/* rules page */
+
+.rules-section{
+    width: 90%;
+    margin: 1em auto;
+    background-color: #addec3;
+}
+
+.rules-list{
+   width: 90%;
+    font-size: 1.2em;
+    margin: 0 auto 2em auto;
+    line-height: 1.5;
+    padding-bottom: 1em;
+    
+}
+
+li{
+    list-style-type: square;
+    list-style-position: inside;
+}
