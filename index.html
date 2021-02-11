@@ -15,7 +15,7 @@
    <h1>Hangman!</h1>
    <div class='top-buttons'>
        <button type="button" class="game-start-button">Start game</button>
-       <button class="rules"><a href="rules.html">Check rules</a></button>
+       <button type="button" class="rules">Check rules</button>
        
    </div>
    
@@ -44,10 +44,11 @@
       
        <div class='input-area'>
        
-       <p>Now, let's guess a letter to find out the answer to this question. <br>
+       <p class="input-instruction">Now, let's guess a letter to find out the answer to this question. <br>
        You can make a guess here: </p>
        
         <input maxlength="1" type="text" class='input-text'>
+        
         <p class='game-over'>GAME OVER!</p>
         
          <button type="button"  class="enter-button">Enter</button>
@@ -78,6 +79,24 @@
     
       
 </div>
+
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>Welcome to the Hangman! 😍</h1>
+      <p class='rules-paragraph'>Here are the basic rules of the game:</p>
+         <ul class="rules-list"> 
+         
+          <li>To answer a question, select a letter of the alphabet and enter the letter in a speial input. Once done, click 'Enter'.</li>
+          <li>If the letter is contained in the word/phrase, you will take another turn guessing a letter and the letter will be shown in a partially hidden answer.</li>
+          <li>If the letter is not contained in the word/phrase, a portion of the hangman is added. </li>
+          <li>The game continues until:
+the word/phrase is guessed (all letters are revealed) – WINNER or,
+all the parts of the hangman are displayed – LOSER</li>
+            
+      </ul>
+      
+    </div>
+    <div class="overlay hidden"></div>
  
 
   

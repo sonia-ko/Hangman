@@ -12,7 +12,9 @@ const questions = [
     'What do you fill with empty hands?',
     'Without fingers, I point, without arms, I strike, without feet, I run.What am I?',
     ' What teaches without talking? ',
-    'What invention lets you look right through a wall?'
+    'What invention lets you look right through a wall?',
+    'What has a face and two hands but no arms or legs?',
+    'I do not have wings, but I can fly. I don’t have eyes, but I can cry! What am I?'
 ]
 
 const answers = [
@@ -27,7 +29,10 @@ const answers = [
     'GLOVE',
     'CLOCK',
     'BOOK',
-    'WINDOW'
+    'WINDOW',
+    'CLOCK',
+    'CLOUD'
+    
 ]
 
 let guess;
@@ -37,12 +42,24 @@ let displayAnswer = '';
 let TemporaryAnswer = [];
 let userScore = 9;
 
+// VARIABLES FOR HTML ELEMENTS
+
+let enterButton = document.querySelector('.enter-button');
+let inputLetter = document.querySelector('.input-text');
+let gameStartButton = document.querySelector('.game-start-button');
+let showAnswerButton = document.querySelector('.show-answer-start-new-game');
+let newGameWinnerButton = document.querySelector(".new-game");
+let questionUI = document.querySelector(".question");
+let answerSection = document.querySelector(".answer-section");
+let gameOverMessage =  document.querySelector(".game-over");
+let inputInstruction =  document.querySelector(".input-instruction"); 
+
 
 initialState();
 
 // A user starts the game
 
-document.querySelector('.game-start-button').addEventListener('click', function() {
+gameStartButton.addEventListener('click', function() {
     
     gameReset();
     currentQuestion = generateRandom();
@@ -55,10 +72,13 @@ document.querySelector('.game-start-button').addEventListener('click', function(
 
 // A user clicks on Enter button
 
-document.querySelector('.enter-button').addEventListener('click', function() {
-    
+enterButton.addEventListener('click', checkAnswer);
+
+// a function that checks the answer 
+
+function checkAnswer() {
     guess = document.querySelector('.input-text').value.toUpperCase();
-    document.querySelector('input').value = '';
+    inputLetter.value = '';
     
      if(TemporaryAnswer.indexOf(guess) !== -1) {
          for(let i = 0; i <= TemporaryAnswer.length; i++){
@@ -79,19 +99,11 @@ document.querySelector('.enter-button').addEventListener('click', function() {
               updatePicture(userScore);
           }
      }
-    
-    
-    
-// 
-    }
-    
-);
+};
 
 // A user selects to show answer and start a new game
 
-document.querySelector('.show-answer-start-new-game').addEventListener('click', function(){
-    gameOver();
-})
+showAnswerButton.addEventListener('click', gameOver);
 
 // A USER WON THE GAME AND CLICKS ON START NEW BUTTON
 
@@ -111,12 +123,12 @@ document.querySelector('.new-game').addEventListener('click', function(){
 // Initial state of the game
 
 function initialState(){
-   document.querySelector(".question").style.display = "none";
-   document.querySelector(".new-game").style.display = "none";
-   document.querySelector(".answer-section").style.display = "none";
-   document.querySelector(".game-over").style.display = "none";
-    document.querySelector(".enter-button").style.display = "none";
-    document.querySelector(".show-answer-start-new-game").style.display = "none";
+   questionUI.style.display = "none";
+   newGameWinnerButton.style.display = "none";
+   answerSection.style.display = "none";
+   gameOverMessage.style.display = "none";
+   enterButton.style.display = "none";
+   showAnswerButton.style.display = "none";
 }
 
 // Chooses a random question
@@ -130,15 +142,15 @@ function generateRandom(){
 
 function gameOver() {
     document.querySelector(".hangman-image").src = "img/gameover.jpg";
-    document.querySelector(".enter-button").style.display = "none";
-    document.querySelector(".game-over").style.display = "block";
+    enterButton.style.display = "none";
+    gameOverMessage.style.display = "block";
     document.querySelector("html").style.backgroundColor = "#ffe7e6";
-    document.querySelector(".input-text").style.display = "none";
-     document.querySelector(".answer-section").textContent = answers[currentQuestion];
-    document.querySelector(".show-answer-start-new-game").style.display = 'none';
-    document.querySelector(".new-game").style.display = 'block';
-    document.querySelector(".game-over").textContent= 'Game Over';
-    document.querySelector(".game-over").style.color = "red";
+    inputLetter.style.display = "none";
+    answerSection.textContent = answers[currentQuestion];
+    showAnswerButton.style.display = 'none';
+    newGameWinnerButton.style.display = 'block';
+    gameOverMessage.textContent= 'Game Over';
+   gameOverMessage.style.color = "red";
     
     
     
@@ -156,7 +168,7 @@ function createHiddenAnswer(){
         
         displayAnswer = displayAnswer + showingAnswer[i];
     }
-        document.querySelector('.answer-section').textContent = displayAnswer;
+       answerSection.textContent = displayAnswer;
 }
 
 // A function that makes an array from the answer 
@@ -183,7 +195,7 @@ function updateAnswerString(){
          
         displayAnswer = displayAnswer + showingAnswer[i];
     }
-        document.querySelector('.answer-section').textContent = displayAnswer;
+        answerSection.textContent = displayAnswer;
 }
 
 // a function that updates the picture if the answer is not correct
@@ -208,14 +220,17 @@ function updatePicture(userScore) {
 function checkWinner() {
     if (displayAnswer === answers[currentQuestion]){
         document.querySelector(".hangman-image").src = "img/win.jpg";
-        document.querySelector(".new-game").textContent = 'Start a new game';
-        document.querySelector(".new-game").style.display = "block";
-        document.querySelector(".game-over").style.display = "block";
-        document.querySelector(".show-answer-start-new-game").style.display = "none";
-        document.querySelector(".game-over").textContent = 'You won the game!';
-        document.querySelector(".new-game").style.backgroundColor = "#84bfa2";
-        document.querySelector(".enter-button").style.display = "none";
-        document.querySelector(".game-over").style.color = "#187843";
+        newGameWinnerButton.textContent = 'Start a new game';
+        newGameWinnerButton.style.display = "block";
+        gameOverMessage.style.display = "block";
+        showAnswerButton.style.display = "none";
+        gameOverMessage.textContent = 'You won the game!';
+        newGameWinnerButton.style.backgroundColor = "#84bfa2";
+        enterButton.style.display = "none";
+        gameOverMessage.style.color = "#187843";
+        inputInstruction.style.display="none";
+        document.querySelector('.input-text').style.display="none";
+
     }
 }
 
@@ -228,17 +243,18 @@ function gameReset() {
     TemporaryAnswer = [];
     userScore = 9;
     
-    document.querySelector(".game-over").style.display = "none";
-    document.querySelector(".new-game").style.display = "none";
+    gameOverMessage.style.display = "none";
+    newGameWinnerButton.style.display = "none";
     document.querySelector(".hangman-image").src = "img/p0.png";
     document.querySelector("input").value = "";
-    document.querySelector("input").style.display = "inline-block";
-    document.querySelector(".question").style.display = "block";
-   document.querySelector(".show-answer-start-new-game").style.display = "block";
-   document.querySelector(".answer-section").style.display = "block";
-   document.querySelector(".starting-paragraph").textContent = 'Your question is...'
-   displayQuestion(questions[currentQuestion]);
-   document.querySelector(".enter-button").style.display = "inline-block";
+    inputLetter.style.display = "inline-block";
+    questionUI.style.display = "block";
+    showAnswerButton.style.display = "block";
+    answerSection.style.display = "block";
+    document.querySelector(".starting-paragraph").textContent = 'Your question is...'
+    displayQuestion(questions[currentQuestion]);
+    enterButton.style.display = "inline-block";
+    inputInstruction.style.display="block";
    
     document.querySelector("html").style.backgroundColor = "#d4ffe7";
 }
@@ -246,5 +262,33 @@ function gameReset() {
 // function that displays the question
 
 function displayQuestion(question){
-    document.querySelector(".question").textContent = question;
+    questionUI.textContent = question;
 }
+
+/// MODAL WINDOW FUNCTIONALITY
+
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnOpenModal = document.querySelector('.rules');
+
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+const openModal = function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+btnOpenModal.addEventListener('click', openModal);
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});

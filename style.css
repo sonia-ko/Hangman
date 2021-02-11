@@ -22,7 +22,8 @@
 html{
     font-family: 'antic_slabregular';
     margin: 0 auto;
-    background-color: #d4ffe7;
+    background-color: #d4ffe7;  
+     
 }
 
 body{
@@ -121,6 +122,9 @@ h1{
     
 }
 
+.input-area:first-child{
+    
+}
 
 
 .enter-button{
@@ -173,6 +177,7 @@ input{
 .answer-section{
     font-size: 1.8em;
     letter-spacing: 0.5em;
+    font-family: 'indie_flowerregular';
 }
 
 .top-section{
@@ -233,4 +238,52 @@ input{
 li{
     list-style-type: square;
     list-style-position: inside;
+}
+
+/* MODAL WINDOW */
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+} 
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: #deffee;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.rules-paragraph{
+    padding: 1em 0 1em 0;
+    font-size: 1.2em;
+    font-weight: bold;
 }
