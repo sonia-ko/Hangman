@@ -1,6 +1,7 @@
 /*Default CSS layout for narrow screens*/
 
-@media (max-width: 480px) {
+@media (max-width: 420px), 
+{
   /*CSS for medium width screens*/
     .question-section{
    overflow-y: scroll;  
@@ -38,41 +39,58 @@
     .input-area{
         width: 100%;
     }
+    
+    .close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+} 
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  width: 90%;
+  position: absolute;
+  top: 10%;
+  left: 3%;
+  right: 3%;
+  transform: translate(-2%, -2%);
+ margin: 0 auto;
+
+
+  background-color: #deffee;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+ 
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+.rules-paragraph{
+    padding: 1em 0 1em 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 }
 
 
-
-@media (max-width: 800px) {
-  /*CSS for wide screens*/
-       .question-section{
-   overflow-y: scroll;  
-}
-    .game-container{
-           display: flex; 
-        }
-    .hangman-image{
-        width: 100%;
-    }
-    .input-area{
-        font-size: 0.9em;
-    }
-    .input-area p{
-        padding: 0 1em 0 0;
-    }
-    
-    h1{
-        font-size: 1.5em;
-        
-    }
-    .game-container{
-        display: block;
-    }
-    
-    .game-start-button, .rules{
-        font-size: 1.4em;
-    }
-}
-    
+ 
 @media (max-width: 1000px) {
   /*CSS for wide screens*/
 .question-section{
